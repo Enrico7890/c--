@@ -71,7 +71,7 @@ void inputarr(Contatto rubrica [], int n){
         cin >> rubrica[i].cognome;
         cout << "Numero: ";
         cin >> rubrica[i].numero;
-        cout << "Eta' " << endl;
+        cout << "Eta' ";
         cin >> rubrica[i].eta;
     }
 }
