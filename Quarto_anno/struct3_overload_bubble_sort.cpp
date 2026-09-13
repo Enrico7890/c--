@@ -35,8 +35,8 @@ struct Evento {
 };
 
 bool operator<(const Data& a, const Data& b){
-    if (a.anno != b.anno) 
-    return a.anno < b.anno;
+    if (a.anno != b.anno) // se anno e' diverso
+    return a.anno < b.anno; // ritorna anno A prima anno B
     if (a.mese != b.mese) 
     return a.mese < b.mese;
     return a.giorno < b.giorno;
