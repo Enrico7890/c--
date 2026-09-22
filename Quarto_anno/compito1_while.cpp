@@ -1,7 +1,6 @@
 // Preso in input un array di N interi, calcolare la somma di tutti i suoi elementi positivi e il prodotto dei suoi elementi negativi
 
 #include <iostream>
-
 using namespace std; 
 
 const int dim = 100;
@@ -24,10 +23,10 @@ int main (){
 
 int inputn(){
     int n = 0;
-    do{
+    while (n <= 0 || n> dim){
         cout << "Inserisci la dimensione dell'array " << endl;
         cin >> n;
-    }while (n <= 0 || n> dim);
+    }
     return n;
 }
 
