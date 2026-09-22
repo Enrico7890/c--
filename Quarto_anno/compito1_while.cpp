@@ -1,7 +1,6 @@
 // Preso in input un array di N interi, calcolare la somma di tutti i suoi elementi positivi e il prodotto dei suoi elementi negativi
 
 #include <iostream>
-#include <string>
 
 using namespace std; 
 
