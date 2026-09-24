@@ -6,17 +6,18 @@ using namespace std;
 const int dim = 100;
 
 int inputn();
-void inputarr(int numeri[dim], int n);
-void somma(int numeri[dim], int n);
-void prodotto(int numeri[dim], int n);
+void inputarr(int [], int);
+void sommaprodotto(int [], int&, int&, int);
+void output(int&, int&);
 
 
 int main (){
-    int numeri[dim];
-    int n = inputn();
-    inputarr(numeri, n);
-    somma(numeri, n);
-    prodotto(numeri, n);
+    int banane[dim];
+    int somma1, prodotto1;
+    int k = inputn();
+    inputarr(banane, k);
+    sommaprodotto(banane,somma1, prodotto1, k);
+    output(somma1, prodotto1);
 }
 
 // input dimensione
@@ -41,22 +42,18 @@ void inputarr(int numeri[dim], int n){
 
 //calcolare la somma di tutti i suoi elementi positivi
 
-void somma(int numeri[dim], int n){
-    int somma = 0;
+void sommaprodotto(int numeri[dim], int &somma, int &prodotto, int n){
+    somma = 0;
+    prodotto = 1;
     for (int i = 0; i < n; i++){
         if (numeri[i] >= 0)
         somma+=numeri[i];
-    }
-    cout << "la somma e' " << somma << endl;
+        else if (numeri[i] < 0)
+        prodotto*=numeri[i];
+    } 
 }
 
-//il prodotto dei suoi elementi negativi
-
-void prodotto(int numeri[dim], int n){
-    int prodotto = 1;
-    for (int i = 0; i < n; i++){
-        if (numeri[i] < 0)
-        prodotto*=numeri[i];
-    }
+void output (int &somma, int &prodotto){
+    cout << "la somma e' " << somma << endl;
     cout << "il prodotto e' " << prodotto << endl;
 }
