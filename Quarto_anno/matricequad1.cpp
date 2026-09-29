@@ -30,11 +30,11 @@ int inputn() {
     return n;
 }
 
-void inputmatrice(int arr[][dim], int n, int m) {
+void inputmatrice(int matrice[][dim], int n, int m) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             cout << "Inserisci l'elemento " << i << " " << j << " ";
-            cin >> arr[i][j];
+            cin >> matrice[i][j];
         }
     }
 }
@@ -46,11 +46,11 @@ int inputnumero(){
     return num;
 }
 
-int ripetere(int arr[][dim], int num, int n, int m) {
+int ripetere(int matrice[][dim], int num, int n, int m) {
     int conteggio = 0;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (arr[i][j] == num)
+            if (matrice[i][j] == num)
                 conteggio++;
         }
     }
