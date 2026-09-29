@@ -1,0 +1,57 @@
+// Presa in input una matrice di N x M interi, ed un altro intero a parte,
+// contare quante volte quest'ultimo viene ripetuto all'interno della matrice.
+#include <iostream>
+using namespace std;
+
+const int dim = 100;
+
+int inputn();
+int inputnumeri(int [][dim], int, int );
+int ripetere(int [][dim], int, int, int );
+void output(int);
+
+int main() {
+    int k[dim][dim];
+    int n = inputn();
+    int m = inputn();
+    int num = inputnumeri(k, n, m);
+    int conteggio = ripetere(k, num, n, m);
+    output(conteggio);
+}
+
+int inputn() {
+    int n = 0;
+    do {
+        cout << "Inserisci la dimensione (righe e poi colonne) ";
+        cin >> n;
+    } while (n <= 0 || n > dim);
+    return n;
+}
+
+int inputnumeri(int arr[][dim], int n, int m) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cout << "Inserisci l'elemento " << i << " " << j << " ";
+            cin >> arr[i][j];
+        }
+    }
+    cout << "Inserisci un numero da cercare " << endl;;
+    int num = 0;
+    cin >> num;
+    return num;
+}
+
+int ripetere(int arr[][dim], int num, int n, int m) {
+    int conteggio = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (arr[i][j] == num)
+                conteggio++;
+        }
+    }
+    return conteggio;
+}
+
+void output(int conteggio) {
+    cout << "Il numero viene ripetuto nella matrice " << conteggio << " volta\e" << endl;
+}
