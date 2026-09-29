@@ -6,7 +6,8 @@ using namespace std;
 const int dim = 100;
 
 int inputn();
-int inputnumeri(int [][dim], int, int );
+void inputmatrice(int [][dim], int, int );
+int inputnumero();
 int ripetere(int [][dim], int, int, int );
 void output(int);
 
@@ -14,7 +15,8 @@ int main() {
     int k[dim][dim];
     int n = inputn();
     int m = inputn();
-    int num = inputnumeri(k, n, m);
+    inputmatrice(k, n, m);
+    int num = inputnumero();
     int conteggio = ripetere(k, num, n, m);
     output(conteggio);
 }
@@ -28,14 +30,17 @@ int inputn() {
     return n;
 }
 
-int inputnumeri(int arr[][dim], int n, int m) {
+void inputmatrice(int arr[][dim], int n, int m) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             cout << "Inserisci l'elemento " << i << " " << j << " ";
             cin >> arr[i][j];
         }
     }
-    cout << "Inserisci un numero da cercare " << endl;;
+}
+
+int inputnumero(){
+    cout << "Inserisci un numero da cercare " << endl;
     int num = 0;
     cin >> num;
     return num;
