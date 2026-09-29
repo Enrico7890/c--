@@ -58,5 +58,5 @@ int ripetere(int matrice[][dim], int num, int n, int m) {
 }
 
 void output(int conteggio) {
-    cout << "Il numero viene ripetuto nella matrice " << conteggio << " volta\e" << endl;
+    cout << "Il numero viene ripetuto nella matrice " << conteggio << " volta" << endl;
 }
