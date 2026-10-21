@@ -1,4 +1,3 @@
-#include "matrice11main.cpp"
 
 #include <iostream>
 #include <string>
