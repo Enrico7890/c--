@@ -28,7 +28,7 @@ struct Alunno {
 int inputn(string);
 void inserisci(Alunno[], int&, int);
 void menu(Alunno[], int&, int);
-void stampaMedia(Alunno[], int);
+double media(Alunno[], int);
 void votoAltoBasso(Alunno[], int);
 void cercaPerVoto(Alunno[], int);
 void cercaVotoMedio(Alunno[], int);
@@ -67,36 +67,36 @@ void inserisci(Alunno studenti[], int& n, int massimo){
 void menu(Alunno studenti[], int& n, int massimo){
     int scelta = 0;
     do{
-        cout << "1. Inserisci alunno  2. Numero alunni  3. Media  4. Piu' alto e piu' basso" << "  5. Cerca per voto  6. Voto medio  0. Esci" << endl;
+        cout << "1. Inserisci alunno  2. Numero alunni  3. Media  4. Piu' alto e piu' basso  5. Cerca per voto  6. Voto medio  0. Esci" << endl;
         cin >> scelta;
         switch (scelta){
-            case 1: 
-            inserisci(studenti, n, massimo); 
+            case 1:
+            inserisci(studenti, n, massimo);
             break;
-            case 2: 
-            cout << "Alunni presenti: " << n << endl; 
+            case 2:
+            cout << "Alunni presenti: " << n << endl;
             break;
-            case 3: 
-            stampaMedia(studenti, n); 
+            case 3:
+            cout << "Media dei voti: " << media(studenti, n) << endl;
             break;
-            case 4: 
-            votoAltoBasso(studenti, n); 
+            case 4:
+            votoAltoBasso(studenti, n);
             break;
-            case 5: 
-            cercaPerVoto(studenti, n); 
+            case 5:
+            cercaPerVoto(studenti, n);
             break;
-            case 6: 
-            cercaVotoMedio(studenti, n); 
+            case 6:
+            cercaVotoMedio(studenti, n);
             break;
         }
     } while (scelta != 0);
 }
 
-void stampaMedia(Alunno studenti[], int n){
+double media(Alunno studenti[], int n){
     double somma = 0;
     for (int i = 0; i < n; i++)
         somma += studenti[i].voto;
-    cout << "Media dei voti " << somma / n << endl;
+    return somma / n;
 }
 
 void votoAltoBasso(Alunno studenti[], int n){
@@ -107,14 +107,14 @@ void votoAltoBasso(Alunno studenti[], int n){
         if (studenti[i].voto < studenti[basso].voto)
             basso = i;
     }
-    cout << "voto piu' alto " << studenti[alto].nome << " " << studenti[alto].cognome << " " << studenti[alto].voto << endl;
-    cout << "voto piu' basso " << studenti[basso].nome << " " << studenti[basso].cognome << " " << studenti[basso].voto << endl;
+    cout << "Voto piu' alto: " << studenti[alto].nome << " " << studenti[alto].cognome << " (" << studenti[alto].voto << ")" << endl;
+    cout << "Voto piu' basso: " << studenti[basso].nome << " " << studenti[basso].cognome << " (" << studenti[basso].voto << ")" << endl;
 }
 
 void cercaPerVoto(Alunno studenti[], int n){
     double cercato = 0;
     int trovati = 0;
-    cout << "Inserisci il voto da cercare ";
+    cout << "Inserisci il voto da cercare: ";
     cin >> cercato;
     for (int i = 0; i < n; i++){
         if (studenti[i].voto == cercato){
@@ -127,14 +127,10 @@ void cercaPerVoto(Alunno studenti[], int n){
 }
 
 void cercaVotoMedio(Alunno studenti[], int n){
-    double somma = 0;
-    for (int i = 0; i < n; i++)
-        somma += studenti[i].voto;
-    double media = somma / n;
-
+    double m = media(studenti, n);
     int trovati = 0;
     for (int i = 0; i < n; i++){
-        if (studenti[i].voto == media){
+        if (studenti[i].voto == m){
             cout << studenti[i].nome << " " << studenti[i].cognome << endl;
             trovati++;
         }
